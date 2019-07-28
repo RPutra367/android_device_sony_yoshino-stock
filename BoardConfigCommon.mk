@@ -223,10 +223,7 @@ DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-
-TARGET_INIT_VENDOR_LIB := libinit_sony_msm8998
-TARGET_RECOVERY_DEVICE_MODULES := libinit_sony_msm8998
+TARGET_INIT_VENDOR_LIB := libinit_yoshino
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
