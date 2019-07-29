@@ -404,6 +404,10 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service \
     com.android.future.usb.accessory
 
+# USB TRUST HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp_policy/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
