@@ -461,6 +461,10 @@ etc/firmware/tzsuntory.mdt
 vendor/lib/libsuntory.so
 vendor/lib64/libsuntory.so
 
+# SEMC_RIL
+etc/permissions/com.sonyericsson.android.semcrilextension.xml
+framework/semcrilextension.jar
+
 # TPM
 etc/firmware/tztpm.b00
 etc/firmware/tztpm.b01
@@ -591,6 +595,40 @@ vendor/bin/sct_service
 vendor/etc/init/mlog_qmi_service.rc
 vendor/etc/init/qcrild.rc
 vendor/etc/init/sct_service.rc
+etc/customization/modem/amss_fs_empty.mbn
+etc/customization/modem/amss_fsg_maple_dsds_airtel_in_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_ais_th_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_asiapacific_tw_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_china_mobile_cn_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_china_mobile_hk_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_cht_tw_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_csl_hk_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_ctm_mo_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_dtac_th_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_du_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_etisalat_ae_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_fareastone_tw_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_gteb_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_hutch_hk_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_ir51_ir92_ims_gte_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_ir51_ir92_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_m1_sg_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_megafon_ru_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_mts_ru_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_orange_poland_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_pccw_hk_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_reliance_com_in_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_reliance_jio_in_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_singtel_sg_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_smartone_hk_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_starhub_sg_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_stc_sa_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_tele2_ru_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_tmobile_us_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_truemove_th_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_tstar_tw_ims_tar.mbn
+etc/customization/modem/amss_fsg_maple_dsds_twm_tw_ims_tar.mbn
 
 # SOMC: UFS firmware update
 lib/firmware/ufs/01AD-483238553734333031414D5220202020-D003.bin:vendor/firmware/ufs/01AD-483238553734333031414D5220202020-D003.bin
