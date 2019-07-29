@@ -19,7 +19,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio_hal.period_size=192 \
     ro.vendor.audio.sdk.ssr=false \
     vendor.fm.a2dp.conc.disabled=true \
-    ro.config.media_vol_steps=25
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=11
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
