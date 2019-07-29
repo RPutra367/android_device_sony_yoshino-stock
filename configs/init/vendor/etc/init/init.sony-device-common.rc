@@ -1,0 +1,104 @@
+# Copyright (c) 2016 Sony Mobile Communications Inc.
+#
+# product common configuration
+#
+
+on early-init && property:ro.vendor.nfc.ko=*
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ \
+        ${ro.vendor.nfc.ko}
+
+# Touch
+on property:dev.bootcomplete=1 && property:vendor.smartstamina.touchreport=*
+   write /sys/devices/virtual/input/clearpad/stamina_mode ${vendor.smartstamina.touchreport}
+
+on boot
+# Cameralight
+    chown cameraserver system /sys/class/leds/led:flash_0/brightness
+    chown cameraserver system /sys/class/leds/led:flash_1/brightness
+    chown cameraserver system /sys/class/leds/led:flash_0/max_brightness
+    chown cameraserver system /sys/class/leds/led:flash_1/max_brightness
+    chown cameraserver system /sys/class/leds/led:flash_0/ires_ua
+    chown cameraserver system /sys/class/leds/led:flash_1/ires_ua
+    chown cameraserver system /sys/class/leds/led:flash_0/strobe
+    chown cameraserver system /sys/class/leds/led:flash_1/strobe
+    chown cameraserver system /sys/class/leds/led:flash_0/duration
+    chown cameraserver system /sys/class/leds/led:flash_1/duration
+    chown cameraserver system /sys/class/leds/led:torch_0/brightness
+    chown cameraserver system /sys/class/leds/led:torch_1/brightness
+    chown cameraserver system /sys/class/leds/led:torch_0/max_brightness
+    chown cameraserver system /sys/class/leds/led:torch_1/max_brightness
+    chown cameraserver system /sys/class/leds/led:torch_0/ires_ua
+    chown cameraserver system /sys/class/leds/led:torch_1/ires_ua
+    chown cameraserver system /sys/class/leds/led:switch_0/brightness
+    chown cameraserver system /sys/class/leds/led:switch_0/fault_status
+
+# Glove for clearpad
+    chown system system /sys/devices/virtual/input/clearpad/glove
+    chmod 0600 /sys/devices/virtual/input/clearpad/glove
+    restorecon /sys/devices/virtual/input/clearpad/glove
+
+# Display for ESD
+    write /sys/devices/mdss_dsi_panel/esd_enable_wo_xlog 1
+
+on post-fs-data
+# Charger
+    # power_supply sysfs
+    chmod 0664 /sys/class/power_supply/battery/charging_enabled
+    chmod 0664 /sys/class/power_supply/battery/lrc_socmax
+    chmod 0664 /sys/class/power_supply/battery/lrc_socmin
+    chmod 0664 /sys/class/power_supply/battery/lrc_enable
+    chmod 0664 /sys/class/power_supply/battery/system_temp_level
+    chmod 0664 /sys/class/power_supply/battery/uevent
+    chmod 0664 /sys/class/power_supply/battery/running_status
+    chmod 0664 /sys/class/power_supply/battery/device/enable_shutdown_at_low_battery
+    chmod 0664 /sys/class/power_supply/bms/charge_full
+    chmod 0664 /sys/class/power_supply/bms/charge_full_raw
+    chmod 0664 /sys/class/power_supply/bms/device/batt_aging_level
+
+    # The charge_service/chargemon/hvdcp_opti use wakelock before on boot, so add permission here.
+    chown radio wakelock /sys/power/wake_lock
+    chown radio wakelock /sys/power/wake_unlock
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
+
+    # chargemon use brightness and autosleep before on boot, so add permission here.
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/power/autosleep
+
+    # hvdcp_opti
+    start vendor.hvdcp_opti
+
+    # charge_service
+
+    start charge_service
+
+    start qns
+
+    # prepare for chargemon
+    write /config/usb_gadget/g1/os_desc/use 0
+    write /config/usb_gadget/g1/strings/0x409/manufacturer Sony
+    write /config/usb_gadget/g1/strings/0x409/product Android
+
+    # chargemon
+    # Add oem_2993 to the group of chargemon for access MiscTA.
+    # Add wakelock to the group of chargemon for access "/sys/power/wake_lock" and "/sys/power/wake_unlock".
+    # Add input to the group of chargemon for access "/dev/input/event"
+    exec - system system root oem_2993 wakelock input -- /vendor/bin/chargemon
+    exec - root root -- /vendor/bin/chargemon_shutdown
+
+    # enable os_desc after chargemon
+    write /config/usb_gadget/g1/os_desc/use 1
+
+    # Should start clearpad_post_probe after filesystem is available and chargemon finishes
+    write /sys/devices/virtual/input/clearpad/post_probe_start 1
+
+# Charge service
+service charge_service /vendor/bin/charge_service -f
+    user system
+    # Add oem_2993 to the group of charge_service for access MiscTA.
+    # Add wakelock to the group of charge_service for access "/sys/power/wake_lock" and "/sys/power/wake_unlock".
+    group system root oem_2993 wakelock
+    disabled
+
+    # For reducing CPU loads, charge service runs as system-background process.
+    writepid /dev/cpuset/system-background/tasks
