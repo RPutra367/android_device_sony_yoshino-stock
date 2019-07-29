@@ -275,21 +275,29 @@ BOARD_ROOT_EXTRA_SYMLINKS += /mnt/vendor/persist:/persist
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
 
-# Wifi
+### WIFI
 BOARD_HAS_QCOM_WLAN := true
-BOARD_HAS_QCOM_WLAN_SDK := true
-BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_WLAN_DEVICE := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_AP := "ap"
-WIFI_DRIVER_FW_PATH_STA := "sta"
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+HOSTAPD_VERSION := VER_0_8_X
+# This doesn't work because wifi driver is a background task
+# we would need to wait till the fwpath is ready
+# WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+# WIFI_DRIVER_MODULE_NAME := "wlan"
+WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-WIFI_DRIVER_MODULE_PATH := "/vendor/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_NAME := "wlan"
+WIFI_DRIVER_FW_PATH_STA := "sta"
+# If built into kernel /sys/kernel/boot_wlan/boot_wlan 
+# with 1 and 0 should be used
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_ON := ON
+WIFI_DRIVER_STATE_OFF := OFF
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 
 # inherit from the proprietary version
 -include vendor/sony/yoshino/BoardConfigVendor.mk
