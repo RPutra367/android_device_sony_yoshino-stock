@@ -49,6 +49,12 @@
         <item>hal_native:standard</item>
         <item>100_sRGB:srgb</item>
         <item>101_DCIP3_P3_opt_3_72:dci_p3</item>
+        <item>102_PANELNATIVE:Vivid</item>
+        <item>dynamic:dynamic</item>
+        <item>cinema:cinema</item>
+        <item>astronomy:astronomy</item>
+        <item>photography:photography</item>
+        <item>basic:basic</item>
     </string-array>
 
     <!-- Turn on LiveDisplay auto mode by default -->
