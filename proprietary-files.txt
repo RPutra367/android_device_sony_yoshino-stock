@@ -525,6 +525,18 @@ lib64/libimageprocessorjni.so
 -priv-app/SemcCameraUI-xxhdpi-release/SemcCameraUI-xxhdpi-release.apk
 -priv-app/SoundPhotoCamera-xxhdpi-release/SoundPhotoCamera-xxhdpi-release.apk
 
+# Sony stock app suooprt
+etc/permissions/com.sony.device.xml
+etc/permissions/com.sonymobile.album.internal.xml
+etc/permissions/com.sonymobile.album.xml
+etc/permissions/privapp-permissions-sony.xml
+etc/permissions/com.sonymobile.home.resourceprovider.xml
+framework/com.sony.device.jar
+framework/com.sonymobile.album.internal.jar
+framework/com.sonymobile.home.resourceprovider.jar
+framework/com.sonymobile.album.jar
+-priv-app/home-sonyMobile-release/home-sonyMobile-release.apk
+
 # SOMC: idd
 bin/idds
 etc/init/idds.rc
