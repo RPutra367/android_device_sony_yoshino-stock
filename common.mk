@@ -358,6 +358,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.broadcastradio@1.0-impl \
     android.hardware.radio.config@1.0-service \
     ims-ext-common \
     librmnetctl \
