@@ -536,6 +536,8 @@ framework/com.sonymobile.album.internal.jar
 framework/com.sonymobile.home.resourceprovider.jar
 framework/com.sonymobile.album.jar
 -priv-app/home-sonyMobile-release/home-sonyMobile-release.apk
+-priv-app/SemcAlbum-albumLive-release/SemcAlbum-albumLive-release.apk
+-priv-app/SemcMusic/SemcMusic.apk
 
 # SOMC: idd
 bin/idds
