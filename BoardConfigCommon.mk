@@ -33,6 +33,9 @@ PRODUCT_SKIP_FINGERPRINT_FROM_FILE := true
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
 
+# Native sdfat (exfat) support - system/vold
+TARGET_EXFAT_DRIVER := sdfat
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
 TARGET_NO_BOOTLOADER := true
@@ -210,8 +213,6 @@ endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN += $(PLATFORM_PATH)/config.fs
-
-TARGET_EXFAT_DRIVER := exfat
 
 # GPS
 TARGET_NO_RPC := true
