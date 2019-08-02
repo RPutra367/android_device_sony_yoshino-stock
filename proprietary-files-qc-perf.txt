@@ -1,12 +1,18 @@
 # Perf
 lib/libqti-perfd-client_system.so
+lib/libqti-util_system.so
 lib/libqti_performance.so
 lib/vendor.qti.hardware.perf@1.0.so
 lib64/libqti-perfd-client_system.so
+lib64/libqti-util_system.so
 lib64/libqti_performance.so
 lib64/vendor.qti.hardware.perf@1.0.so
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+vendor/etc/perf/commonresourceconfigs.xml
+vendor/etc/perf/perfboostsconfig.xml
+vendor/etc/perf/targetconfig.xml
+vendor/etc/perf/targetresourceconfigs.xml
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
 vendor/etc/perf/perf-profile2.conf
@@ -25,7 +31,14 @@ vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/libqti-utils.so
 
+# SSR (subsystem restart)
+vendor/bin/ssr_diag
+vendor/bin/ssr_setup
+vendor/bin/subsystem_ramdump
+
 # IOP
+bin/perfservice
+etc/init/perfservice.rc
 lib/libqti-iopd-client_system.so
 lib/vendor.qti.hardware.iop@1.0.so
 lib/vendor.qti.hardware.iop@2.0.so
@@ -36,3 +49,11 @@ vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
 vendor/lib/libqti-iopd-client.so
 vendor/lib64/hw/vendor.qti.hardware.iop@2.0-impl.so
 vendor/lib64/libqti-iopd-client.so
+vendor/lib/libfeedbackhandler.so
+vendor/lib64/libfeedbackhandler.so
+
+# KOBJEVENTD
+vendor/bin/hw/kobjeventd
+vendor/etc/init/init.kobjeventd.rc
+vendor/lib/kobjeventd/touch_cover.so
+vendor/lib64/kobjeventd/touch_cover.so

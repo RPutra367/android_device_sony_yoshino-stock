@@ -20,8 +20,10 @@ vendor/etc/init/vendor.somc.hardware.camera.provider@1.0-service.rc
 vendor/lib/hw/camera.qcom.so
 vendor/lib/libcacao_common.so
 vendor/lib/libcacao_process_ctrl.so
+vendor/lib64/libcacao_common.so
 vendor/lib/libcameralight.so
 vendor/lib/libcammw.so
+vendor/lib/libdualcameraddm.so
 vendor/lib/libcammw_util.so
 vendor/lib/libexcal_core.so
 vendor/lib/libexcal_pal.so
@@ -29,6 +31,9 @@ vendor/lib/libexcal_system.so
 vendor/lib/libhal_dbg.so
 vendor/lib/libidd.so
 vendor/lib/libmiscta.so
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegdmahw.so
+vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -93,6 +98,20 @@ vendor/lib/vendor.somc.camera.device@3.2-impl.so
 vendor/lib/vendor.somc.camera.device@3.3-impl.so
 vendor/lib/vendor.somc.camera.device@3.4-impl.so
 vendor/lib/vendor.somc.hardware.camera.cacao@3.0-impl.so
+lib/libjni_imageutil.so
+lib/libjni_snapcammosaic.so
+lib/libjni_snapcamtinyplanet.so
+lib64/libjni_gallery_eglfence.so
+lib64/libjni_gallery_filters.so
+lib64/libjni_gallery_jpegstream.so
+lib64/libjni_imageutil.so
+lib64/libjni_pacprocessor.so
+lib64/libjni_snapcammosaic.so
+lib64/libjni_snapcamtinyplanet.so
+vendor/lib64/libcameralight.so
+vendor/lib64/libcammw_util.so
+vendor/lib64/libdualcameraddm.so
+vendor/lib64/libmmcamera_tintless_algo.so
 
 # Camera app modules
 vendor/lib/libsomc_alfortlpserv.so
@@ -140,7 +159,22 @@ vendor/lib/libdepthmapwrapper.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
 vendor/lib/liboptizoom.so
+vendor/lib/libscveBlobDescriptor.so
+vendor/lib/libscveCommon.so
+vendor/lib/libscveCommon_stub.so
+vendor/lib/libscveFaceRecognition.so
+vendor/lib/libscveObjectSegmentation.so
+vendor/lib/libscveObjectTracker.so
+vendor/lib/libscveObjectTracker_stub.so
+vendor/lib/libscvePanorama.so
+vendor/lib/libscvePanorama_lite.so
+vendor/lib/libubifocus.so
+vendor/lib/libscveBlobDescriptor_stub.so
+vendor/lib64/libscveBlobDescriptor.so
+vendor/lib64/libscveCommon.so
+vendor/lib64/libscveCommon_stub.so
 vendor/lib/camera/libexcal_hal_ctrl_plugin.so
+vendor/lib64/libscveBlobDescriptor_stub.so
 vendor/lib/camera/libexcal_prc_image_conv_plugin.so
 vendor/lib/camera/libexcal_color_ctrl_plugin.so
 vendor/lib/camera/libexcal_req_ctrl_plugin.so
@@ -171,6 +205,17 @@ vendor/lib/camera/libexcal_flicker_detector_plugin.so
 vendor/lib64/libchromaflash.so
 vendor/lib64/libseemore.so
 vendor/lib64/liboptizoom.so
+vendor/lib64/libscveBlobDescriptor.so
+vendor/lib64/libscveBlobDescriptor_stub.so
+vendor/lib64/libscveCommon.so
+vendor/lib64/libscveCommon_stub.so
+vendor/lib64/libscveFaceRecognition.so
+vendor/lib64/libscveObjectSegmentation.so
+vendor/lib64/libscveObjectTracker.so
+vendor/lib64/libscveObjectTracker_stub.so
+vendor/lib64/libscvePanorama.so
+vendor/lib64/libscvePanorama_lite.so
+vendor/lib64/libubifocus.so
 
 # Camera calibration
 vendor/camera/SEM13BS1/color_ctrl.dat
@@ -304,7 +349,7 @@ vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.solibscveFaceRecognition.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
@@ -328,6 +373,10 @@ vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
+
+# CLEANLOSTFOUND
+etc/cleanlostfound.sh
+etc/init/cleanlostfound.rc|c0a8d50b214b0d2766f713a6b73db4b055d2e378
 
 # Common libraries for firmware
 etc/firmware/cmnlib.b00
@@ -367,6 +416,12 @@ vendor/firmware/a540_zap.b01
 vendor/firmware/a540_zap.b02
 vendor/firmware/a540_zap.elf
 vendor/firmware/a540_zap.mdt
+
+# FRAMEWORK_DEPENDENCIES
+etc/permissions/com.sonyericsson.idd.xml
+etc/permissions/com.sonymobile.getmore.api.xml
+framework/com.sonyericsson.idd_impl.jar
+framework/com.sonymobile.getmore.api.jar
 
 # FIDO
 -app/FidoClient/FidoClient.apk
@@ -422,11 +477,13 @@ etc/firmware/tzfingerprint.mdt
 vendor/bin/hw/fpc_fingerprint@2.1_HIDL-service
 vendor/etc/init/fpc_fingerprint@2.1_HIDL-service.rc
 vendor/lib/lib_fpc_tac_shared.so
-vendor/lib/liblights-core.so
 vendor/lib/libsys-utils.so
 vendor/lib64/lib_fpc_tac_shared.so
-vendor/lib64/liblights-core.so
 vendor/lib64/libsys-utils.so
+vendor/bin/hw/illumination_service
+vendor/etc/init/init.illumination_service.rc
+vendor/lib/hw/lights.default.so
+vendor/lib64/hw/lights.default.so
 
 # HDCP
 etc/firmware/tzhdcp.b00
@@ -439,7 +496,12 @@ etc/firmware/tzhdcp.b06
 etc/firmware/tzhdcp.b07
 etc/firmware/tzhdcp.mdt
 
+# IDD
+bin/startup-logger
+etc/init/startup-logger.rc|507a8d81e2d671609db6541d2ed2e5c2771e7516
+
 # IPA
+vendor/bin/ipacm-diag
 vendor/firmware/ipa_fws.b00
 vendor/firmware/ipa_fws.b01
 vendor/firmware/ipa_fws.b02
@@ -447,6 +509,14 @@ vendor/firmware/ipa_fws.b03
 vendor/firmware/ipa_fws.b04
 vendor/firmware/ipa_fws.elf
 vendor/firmware/ipa_fws.mdt
+
+# LIGHT
+lib/vendor.semc.hardware.light@1.0.so
+lib64/vendor.semc.hardware.light@1.0.so
+
+# MSS
+bin/mssconfig
+etc/init/mssconfig.rc|d73b8839da2b25c9d8bdf59985d6e27d9d23cf6d
 
 # Suntory
 etc/firmware/tzsuntory.b00
@@ -549,10 +619,13 @@ lib64/vendor.semc.system.idd@1.0.so
 vendor/bin/iddd
 vendor/bin/lota
 vendor/bin/hw/vendor.semc.system.idd@1.0-service
+vendor/bin/idd-logreader
 vendor/etc/idd.conf
 vendor/etc/iddd.conf
 vendor/etc/init/lota.rc
 vendor/etc/init/vendor.semc.system.idd@1.0-service.rc
+vendor/etc/security/idd_config.pem
+vendor/etc/security/idd_report.pem
 vendor/lib/libidd.so
 vendor/lib64/libidd.so
 vendor/lib64/libjansson.so
@@ -576,7 +649,7 @@ bin/scd
 bin/taimport
 bin/updatemiscta
 etc/init/taimport.rc
-etc/init/updatemiscta.rc
+etc/init/updatemiscta.rc|014a2833b350f8581ce05534c0ed3ddaa95d975b
 etc/permissions/com.sonymobile.miscta.xml
 framework/com.sonymobile.miscta_impl.jar
 lib/libMiscTAApi.sony.so
@@ -588,6 +661,7 @@ lib64/vendor.somc.hardware.miscta@1.0.so
 vendor/bin/hw/vendor.somc.hardware.miscta@1.0-service
 vendor/bin/tad
 vendor/bin/taimport_vendor
+vendor/etc/init/init.taqmi.rc|dfe867be6134daa915174951d62a2c8016157886
 vendor/bin/ta_qmi_service
 vendor/bin/wait4tad
 vendor/etc/init/vendor.somc.hardware.miscta@1.0-service.rc
@@ -599,9 +673,27 @@ vendor/lib64/libta.so
 # SOMC: Qnovo
 vendor/bin/qns
 vendor/bin/charge_service
+vendor/bin/chargemon
+vendor/bin/chargemon_shutdown
+vendor/bin/hvdcp_opti
+
+# SSR
+bin/bt_ssr_dumper
+bin/ssr_dumper
+etc/init.ssr_level.sh
+etc/ssrdumper_config.xml
+etc/ssrdumper_target.xml
+etc/init/ssr_dumper.rc|60fbe66ef540c041e3b95d9131ac3c45d731a56a
+lib/libdumpframework.so
+lib/libsnappy.so
+lib/libtlcore.so
+lib64/libdumpframework.so
+lib64/libsnappy.so
+lib64/libtlcore.so
 
 # SOMC: radio
 bin/sony-modem-switcher
+lib/vendor.somc.hardware.radio@1.0.so
 lib64/vendor.somc.hardware.radio@1.0.so
 vendor/bin/hw/qcrild
 vendor/bin/mlog_qmi_service
@@ -648,6 +740,10 @@ etc/customization/modem/amss_fsg_maple_dsds_twm_tw_ims_tar.mbn
 lib/firmware/ufs/01AD-483238553734333031414D5220202020-D003.bin:vendor/firmware/ufs/01AD-483238553734333031414D5220202020-D003.bin
 lib/firmware/ufs/01CE-4B4C554347344A3145442D4230433120-0200.bin:vendor/firmware/ufs/01CE-4B4C554347344A3145442D4230433120-0200.bin
 -sbin/ffu;rootfs
+
+# TOUCH
+somc/touch/images/big_touch.png:vendor/sony/touch/images/big_touch.png
+somc/touch/images/splash.png:vendor/sony/touch/images/splash.png
 
 # Touchscreen Firmware
 vendor/firmware/touch_module_id_0xd0.img
