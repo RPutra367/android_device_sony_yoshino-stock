@@ -37,10 +37,10 @@
     <ctl name="Voice Rx Gain" id="2" value="20" />
     <ctl name="HPHL Volume" value="97" />
     <ctl name="HPHR Volume" value="97" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="RX4 Digital Volume" value="84" />
+    <ctl name="RX1 Digital Volume" value="95" />
+    <ctl name="RX2 Digital Volume" value="95" />
+    <ctl name="RX3 Digital Volume" value="95" />
+    <ctl name="RX4 Digital Volume" value="95" />
     <ctl name="ADC2 Volume" value="19" />
     <ctl name="DEC5 Volume" value="84" />
     <ctl name="DEC10 Volume" value="84" />
