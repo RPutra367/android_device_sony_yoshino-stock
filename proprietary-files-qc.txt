@@ -786,6 +786,7 @@ vendor/radio/qcril_database/upgrade/upgrade/3_version_update_wps_config.sql
 
 # Radio - IMS
 -priv-app/ims/ims.apk
+# -app/uceShimService/uceShimService.apk
 etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 etc/permissions/com.qualcomm.qti.imscmservice.xml
@@ -800,6 +801,7 @@ lib/com.qualcomm.qti.imscmservice@2.1.so
 lib/com.qualcomm.qti.uceservice@2.0.so
 lib/lib-imscamera.so
 lib/lib-imsvideocodec.so
+lib/lib-imsvt.so
 lib/lib-imsvtextutils.so
 lib/lib-imsvtutils.so
 lib/libimscamera_jni.so
