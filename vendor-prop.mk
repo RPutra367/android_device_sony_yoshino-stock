@@ -4,50 +4,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=2 \
+    af.fast_track_multiplier=1 \
     vendor.audio_hal.period_size=192 \
     audio.offload.video=true \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true \
     audio.deep_buffer.media=true \
     audio.cts.media=false \
     audio.offload.min.duration.secs=30 \
-    persist.dirac.acs.controller=qem \
-    ro.dirac.acs.storeSettings=1 \
-    ro.dirac.ignore_error=1 \
-    tunnel.audio.encode=true
+    audio.sony.effect.use.proxy=true \
+    av.offload.enable=true \
+    ro.af.client_heap_size_kbyte=7168
 
 # Audio new
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio_hal.period_size=192 \
-    ro.vendor.audio.sdk.fluencetype=fluencepro \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=true \
-    persist.vendor.audio.fluence.speaker=true \
-    vendor.audio.tunnel.encode=false \
-    persist.vendor.audio.ras.enabled=false \
-    vendor.audio.offload.buffer.size.kb=32 \
-    vendor.audio.offload.track.enable=true \
-    vendor.voice.path.for.pcm.voip=true \
-    vendor.audio.offload.multiaac.enable=true \
-    vendor.audio.dolby.ds2.enabled=false \
-    vendor.audio.dolby.ds2.hardbypass=false \
-    vendor.audio.offload.multiple.enabled=true \
-    vendor.audio.offload.passthrough=false \
     ro.vendor.audio.sdk.ssr=false \
-    vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.safx.pbe.enabled=true \
-    vendor.audio.parser.ip.buffer.size=0 \
-    vendor.audio.flac.sw.decoder.24bit=true \
-    persist.vendor.bt.a2dp_offload_cap=false \
-    vendor.audio.use.sw.alac.decoder=true \
-    vendor.audio.use.sw.ape.decoder=true \
-    vendor.audio.hw.aac.encoder=true \
     vendor.fm.a2dp.conc.disabled=true \
-    vendor.audio.noisy.broadcast.delay=600 \
     ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=11 \
-    ro.af.client_heap_size_kbyte=7168
+    ro.config.vc_call_vol_steps=11
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
