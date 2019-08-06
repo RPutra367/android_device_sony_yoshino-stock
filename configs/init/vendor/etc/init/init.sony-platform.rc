@@ -190,6 +190,9 @@ on early-boot
     restorecon /sys/devices/virtual/input/clearpad/fwinfo
 
 on boot
+    # Tap to wake
+    chown system system /sys/devices/virtual/input/clearpad/wakeup_gesture
+    chmod 0660 /sys/devices/virtual/input/clearpad/wakeup_gesture
 
     # Tof sensor
     chown cameraserver camera /dev/i2c-8
