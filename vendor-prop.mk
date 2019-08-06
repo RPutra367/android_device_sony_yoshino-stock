@@ -108,6 +108,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     nfc.rf_la_disabled=false \
     persist.nfc.smartcard.config=SIM1,eSE1
 
+# OEM Unlock reporting
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.oem_unlock_supported=1
+
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.fw.bg_apps_limit=60 \
