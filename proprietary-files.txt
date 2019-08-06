@@ -669,6 +669,7 @@ vendor/etc/init/vendor.somc.hardware.miscta@1.0-service.rc
 vendor/lib/libta.so
 -vendor/lib64/libmiscta.so
 vendor/lib64/libta.so
+-priv-app/CustomizationSelector/CustomizationSelector.apk
 
 # SOMC: Qnovo
 vendor/bin/qns
